@@ -87,8 +87,20 @@ public class TemplateOpMode_Linear extends LinearOpMode {
             telemetry.update();
 
             // eg: Run wheels in tank mode (note: The joystick goes negative when pushed forwards)
-            leftMotor.setPower(-gamepad1.left_stick_y);
-            rightMotor.setPower(-gamepad1.right_stick_y);
+            //leftMotor.setPower(-gamepad1.left_stick_y);
+            //rightMotor.setPower(-gamepad1.right_stick_y);
+
+            if(-gamepad1.left_stick_y > 0) {
+                leftMotor.setPower(-gamepad1.left_stick_y*0.75);
+            } else if(-gamepad1.left_stick_y < 0) {
+                leftMotor.setPower(gamepad1.left_stick_y*0.75);
+            }
+
+            if(-gamepad1.left_stick_x > 0) {
+                leftMotor.setPower(-gamepad1.left_stick_x*0.25);
+            } else if(-gamepad1.left_stick_x < 0) {
+                leftMotor.setPower(gamepad1.left_stick_x*0.25);
+            }
 
             idle(); // Always call idle() at the bottom of your while(opModeIsActive()) loop
         }
