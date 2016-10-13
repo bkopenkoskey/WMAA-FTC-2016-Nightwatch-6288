@@ -88,7 +88,7 @@ public class TemplateOpMode_Linear extends LinearOpMode {
 
             // eg: Run wheels in tank mode (note: The joystick goes negative when pushed forwards)
             leftMotor.setPower(-gamepad1.left_stick_y);
-            rightMotor.setPower(-gamepad1.right_stick_y);
+            rightMotor.setPower(gamepad1.right_stick_y);
 
             idle(); // Always call idle() at the bottom of your while(opModeIsActive()) loop
         }
